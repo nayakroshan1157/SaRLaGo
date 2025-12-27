@@ -24,7 +24,7 @@ const CaptainSignup = () => {
 
   const submitHandler = async (e) => {
     e.preventDefault()
-    const captainData = {
+    setUserData({
       fullname: {
         firstname: firstName,
         lastname: lastName
@@ -37,7 +37,7 @@ const CaptainSignup = () => {
         capacity: vehicleCapacity,
         vehicleType: vehicleType
       }
-    }
+    })
 
     // const response = await axios.post(`${import.meta.env.VITE_BASE_URL}/captains/register`, captainData)
 
@@ -61,7 +61,7 @@ const CaptainSignup = () => {
   return (
     <div className='py-5 px-5 h-screen flex flex-col justify-between'>
       <div>
-        <img className='w-20 mb-3' src="https://www.svgrepo.com/show/505031/uber-driver.svg" alt="" />
+        <img className='w-40 h-40 mb-10' src="/sarlago.png" alt="" />
 
         <form onSubmit={(e) => {
           submitHandler(e)
