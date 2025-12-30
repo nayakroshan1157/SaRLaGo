@@ -35,54 +35,73 @@ const UserLogin = () => {
     setEmail('')
     setPassword('')
   }
+ return (
+    <div className="min-h-screen flex items-center justify-center bg-cover bg-center mt-6 bg-[url('/banner.webp')] h-screen w-full px-4">
+      <div className="w-full max-w-md bg-white p-8 rounded-2xl shadow-lg">
 
-  return (
-    <div className='p-7 h-screen flex flex-col justify-between'>
-      <div>
-        <img className='w-40 h-40 mb-10' src="/sarlago.png" alt="" />
+        {/* TITLE */}
+        <h1 className="text-3xl font-bold text-center mb-6">
+          Login to <span className="text-green-500">Sa</span>
+          <span className="text-yellow-400">R</span>
+          <span className="text-orange-500">LaGo</span>
+        </h1>
 
-        <form onSubmit={(e) => {
-          submitHandler(e)
-        }}>
-          <h3 className='text-lg font-medium mb-2'>What's your email</h3>
-          <input
-            required
-            value={email}
-            onChange={(e) => {
-              setEmail(e.target.value)
-            }}
-            className='bg-[#eeeeee] mb-7 rounded-lg px-4 py-2 border w-full text-lg placeholder:text-base'
-            type="email"
-            placeholder='email@example.com'
-          />
+        {/* FORM */}
+        <form onSubmit={submitHandler} className="space-y-5">
+          <div>
+            <label className="block text-sm font-medium mb-1">
+              Email Address
+            </label>
+            <input
+              type="email"
+              required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="email@example.com"
+              className="w-full px-4 py-2 rounded-lg border bg-gray-100 focus:outline-none focus:ring-2 focus:ring-green-500"
+            />
+          </div>
 
-          <h3 className='text-lg font-medium mb-2'>Enter Password</h3>
-
-          <input
-            className='bg-[#eeeeee] mb-7 rounded-lg px-4 py-2 border w-full text-lg placeholder:text-base'
-            value={password}
-            onChange={(e) => {
-              setPassword(e.target.value)
-            }}
-            required type="password"
-            placeholder='password'
-          />
+          <div>
+            <label className="block text-sm font-medium mb-1">
+              Password
+            </label>
+            <input
+              type="password"
+              required
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="••••••••"
+              className="w-full px-4 py-2 rounded-lg border bg-gray-100 focus:outline-none focus:ring-2 focus:ring-green-500"
+            />
+          </div>
 
           <button
-            className='bg-[#111] text-white font-semibold mb-3 rounded-lg px-4 py-2 w-full text-lg placeholder:text-base'
-          >Login</button>
-
+            type="submit"
+            className="w-full bg-black text-white py-2 rounded-lg font-semibold hover:bg-gray-800 transition"
+          >
+            Login
+          </button>
         </form>
-        <p className='text-center'>New here? <Link to='/signup' className='text-blue-600'>Create new Account</Link></p>
-      </div>
-      <div>
+
+        {/* SIGN UP */}
+        <p className="text-center text-sm mt-4">
+          New here?{" "}
+          <Link to="/signup" className="text-blue-600 font-medium">
+            Create new account
+          </Link>
+        </p>
+
+        {/* CAPTAIN LOGIN */}
         <Link
-          to='/captain-login'
-          className='bg-[#10b461] flex items-center justify-center text-white font-semibold mb-5 rounded-lg px-4 py-2 w-full text-lg placeholder:text-base'
-        >Sign in as Captain</Link>
+          to="/captain-login"
+          className="mt-6 block text-center bg-green-500 text-white py-2 rounded-lg font-semibold hover:bg-green-600 transition"
+        >
+          Sign in as Captain
+        </Link>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default UserLogin
+export default UserLogin;

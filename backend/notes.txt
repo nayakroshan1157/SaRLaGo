@@ -1,0 +1,5 @@
+dotenv = to hide sensitive document used in .env file
+express = is used to create APIs and it is a nodejs framework
+cors = (Cross Origin Resource Sharing) allowed frontend to talk to your backend
+cookie-parser = used for Authentication, JWT stored in cookies, Session management
+<div class="homeLanding flex flex-col sm:items-baseline items-center text-center sm:text-start md:mt-30">…</div>flex<div class="text-3xl xl:text-6xl md:text-5xl text-white  md:leading-tight font-semibold tracking-wide">"Book a ride with "<br class="block sm:hidden 3xl:block whitespace-no-wrap"><div class="text-3xl xl:text-6xl md:text-5xl text-open-data-drivers-earnings  md:leading-tight font-semibold tracking-wide">Zero Commission</div></div><p class="text-gray-200  font-light xl:text-2xl md:text-lg text-sm opacity-80 tracking-wide mt-5 whitespace-pre-line">An open, fast and easy-to-use app. 100% direct payment to drivers</p><div class="font-medium hover:shadow-md px-10 py-3  cursor-pointer mt-8 bg-open-data-drivers-earnings-card text-open-data-color-11  rounded-lg">Download the App</div></div>

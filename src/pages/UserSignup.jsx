@@ -49,77 +49,114 @@ const UserSignup = () => {
 
   }
   return (
-    <div>
-      <div className='p-7 h-screen flex flex-col justify-between'>
-        <div>
-          <img className='w-40 h-40 mb-10' src="/sarlago.png" alt="" />
+    <div className="min-h-screen flex items-center justify-center bg-cover bg-center mt-6 bg-[url('/banner.webp')] h-screen w-fullpx-4">
+      <div className="w-full max-w-md bg-white p-8 rounded-2xl shadow-lg">
 
-          <form onSubmit={(e) => {
-            submitHandler(e)
-          }}>
+        {/* TITLE */}
+        <h1 className="text-3xl font-bold text-center mb-6">
+          Create your{" "}
+          <span className="text-green-500">Sa</span>
+          <span className="text-yellow-400">R</span>
+          <span className="text-orange-500">LaGo</span> account
+        </h1>
 
-            <h3 className='text-lg w-1/2  font-medium mb-2'>What's your name</h3>
-            <div className='flex gap-4 mb-7'>
+        {/* FORM */}
+        <form onSubmit={submitHandler} className="space-y-5">
+
+          {/* NAME */}
+          <div>
+            <label className="block text-sm font-medium mb-2">
+              What’s your name?
+            </label>
+            <div className="flex gap-4">
               <input
                 required
-                className='bg-[#eeeeee] w-1/2 rounded-lg px-4 py-2 border  text-lg placeholder:text-base'
                 type="text"
-                placeholder='First name'
+                placeholder="First name"
                 value={firstName}
-                onChange={(e) => {
-                  setFirstName(e.target.value)
-                }}
+                onChange={(e) => setFirstName(e.target.value)}
+                className="w-1/2 px-4 py-2 rounded-lg border bg-gray-100 focus:outline-none focus:ring-2 focus:ring-green-500"
               />
               <input
                 required
-                className='bg-[#eeeeee] w-1/2  rounded-lg px-4 py-2 border  text-lg placeholder:text-base'
                 type="text"
-                placeholder='Last name'
+                placeholder="Last name"
                 value={lastName}
-                onChange={(e) => {
-                  setLastName(e.target.value)
-                }}
+                onChange={(e) => setLastName(e.target.value)}
+                className="w-1/2 px-4 py-2 rounded-lg border bg-gray-100 focus:outline-none focus:ring-2 focus:ring-green-500"
               />
             </div>
+          </div>
 
-            <h3 className='text-lg font-medium mb-2'>What's your email</h3>
+          {/* EMAIL */}
+          <div>
+            <label className="block text-sm font-medium mb-2">
+              Email address
+            </label>
             <input
               required
-              value={email}
-              onChange={(e) => {
-                setEmail(e.target.value)
-              }}
-              className='bg-[#eeeeee] mb-7 rounded-lg px-4 py-2 border w-full text-lg placeholder:text-base'
               type="email"
-              placeholder='email@example.com'
+              placeholder="email@example.com"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="w-full px-4 py-2 rounded-lg border bg-gray-100 focus:outline-none focus:ring-2 focus:ring-green-500"
             />
+          </div>
 
-            <h3 className='text-lg font-medium mb-2'>Enter Password</h3>
-
+          {/* PASSWORD */}
+          <div>
+            <label className="block text-sm font-medium mb-2">
+              Create password
+            </label>
             <input
-              className='bg-[#eeeeee] mb-7 rounded-lg px-4 py-2 border w-full text-lg placeholder:text-base'
+              required
+              type="password"
+              placeholder="••••••••"
               value={password}
-              onChange={(e) => {
-                setPassword(e.target.value)
-              }}
-              required type="password"
-              placeholder='password'
+              onChange={(e) => setPassword(e.target.value)}
+              className="w-full px-4 py-2 rounded-lg border bg-gray-100 focus:outline-none focus:ring-2 focus:ring-green-500"
             />
+          </div>
 
-            <button
-              className='bg-[#111] text-white font-semibold mb-3 rounded-lg px-4 py-2 w-full text-lg placeholder:text-base'
-            >Create account</button>
+          {/* BUTTON */}
+          <button
+            type="submit"
+            className="w-full bg-black text-white py-2 rounded-lg font-semibold hover:bg-gray-800 transition"
+          >
+            Create account
+          </button>
+        </form>
 
-          </form>
-          <p className='text-center'>Already have a account? <Link to='/login' className='text-blue-600'>Login here</Link></p>
-        </div>
-        <div>
-          <p className='text-[10px] leading-tight'>This site is protected by reCAPTCHA and the <span className='underline'>Google Privacy
-            Policy</span> and <span className='underline'>Terms of Service apply</span>.</p>
-        </div>
+        {/* LOGIN LINK */}
+        <p className="text-center text-sm mt-4">
+          Already have an account?{" "}
+          <Link to="/login" className="text-blue-600 font-medium">
+            Login here
+          </Link>
+        </p>
+
+        {/* FOOTER */}
+        <p className="text-[10px] leading-tight text-center mt-6 text-gray-500">
+          This site is protected by reCAPTCHA and the{" "}
+          <span className="underline cursor-pointer">Google Privacy Policy</span>{" "}
+          and{" "}
+          <span className="underline cursor-pointer">
+            Terms of Service
+          </span>{" "}
+          apply.
+        </p>
       </div>
-    </div >
-  )
-}
+    </div>
+  );
+};
 
-export default UserSignup
+export default UserSignup;
+
+
+
+
+
+
+
+
+
