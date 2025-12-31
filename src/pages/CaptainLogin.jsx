@@ -88,26 +88,39 @@
 
 // export default Captainlogin
 
-
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+import axios from 'axios'
+// import { CaptainDataContext } from '../context/CapatainContext'
 
 const Captainlogin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [captainData, setCaptainData] = useState("");
+  const navigate = useNavigate()
 
-  const submitHandler = (e) => {
+  const submitHandler = async (e) => {
     e.preventDefault();
+    const captain = {
+      email: email,
+      password
+    }
 
-    setCaptainData({
-      email,
-      password,
-    });
+    const response = await axios.post(`${import.meta.env.VITE_BASE_URL}/captains/login`, captain)
 
-    setEmail("");
-    setPassword("");
-  };
+    if (response.status === 200) {
+      const data = response.data
+
+      setCaptain(data.captain)
+      localStorage.setItem('token', data.token)
+      navigate('/captain-home')
+
+    }
+
+    setEmail('')
+    setPassword('')
+  }
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-cover bg-center mt-6 bg-[url('/banner.webp')] h-screen w-full  px-4">
@@ -122,7 +135,9 @@ const Captainlogin = () => {
         </h1>
 
         {/* FORM */}
-        <form onSubmit={submitHandler} className="space-y-5">
+        <form onSubmit={(e) => {
+          submitHandler(e)
+        }} className="space-y-5">
 
           {/* EMAIL */}
           <div>
